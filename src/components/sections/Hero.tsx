@@ -10,6 +10,17 @@ import { staggerContainer, staggerItem } from "@/lib/animations";
 export function Hero() {
   const [copied, setCopied] = useState(false);
 
+  async function downloadResume() {
+    const res = await fetch("/resume.pdf");
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "SHASHANK_SHARMA_Lead_Full_Stack.pdf";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   function copyPhone() {
     navigator.clipboard.writeText("+918105151994");
     setCopied(true);
@@ -75,14 +86,13 @@ export function Hero() {
             <Mail className="w-4 h-4" />
             Get in Touch
           </a>
-          <a
-            href="/resume.pdf"
-            download="SHASHANK_SHARMA_Lead_Full_Stack.pdf"
+          <button
+            onClick={downloadResume}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--card-border)] text-[var(--foreground)] font-medium hover:bg-[var(--muted)] transition-colors"
           >
             <Download className="w-4 h-4" />
             Resume
-          </a>
+          </button>
         </motion.div>
 
         <motion.div
