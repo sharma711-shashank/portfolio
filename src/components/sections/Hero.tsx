@@ -77,7 +77,7 @@ export function Hero() {
           </a>
           <a
             href="/resume.pdf"
-            download="SHASHANK_SHARMA_Lead_Full_Stack"
+            download="SHASHANK_SHARMA_Lead_Full_Stack.pdf"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--card-border)] text-[var(--foreground)] font-medium hover:bg-[var(--muted)] transition-colors"
           >
             <Download className="w-4 h-4" />
