@@ -10,11 +10,23 @@ import { LinkedinIcon } from "@/components/ui/Icons";
 
 export function Contact() {
   const [copied, setCopied] = useState(false);
+  const emailSubject = "Hello Shashank";
+  const mailtoHref = `mailto:${siteConfig.email}?subject=${encodeURIComponent(emailSubject)}`;
+  const gmailComposeHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}&su=${encodeURIComponent(emailSubject)}`;
 
   function copyPhone() {
     navigator.clipboard.writeText("+918105151994");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  }
+
+  function handleEmailClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
+    if (!isTouchDevice) {
+      event.preventDefault();
+      window.open(gmailComposeHref, "_blank", "noopener,noreferrer");
+    }
   }
 
   return (
@@ -35,7 +47,8 @@ export function Contact() {
           </p>
 
           <a
-            href={`mailto:${siteConfig.email}?subject=Hello%20Shashank`}
+            href={mailtoHref}
+            onClick={handleEmailClick}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] font-medium text-lg hover:opacity-90 transition-opacity group"
           >
             <Mail className="w-5 h-5" />
@@ -55,7 +68,8 @@ export function Contact() {
               <span className="text-sm">LinkedIn</span>
             </a>
             <a
-              href={`mailto:${siteConfig.email}?subject=Hello%20Shashank`}
+              href={mailtoHref}
+              onClick={handleEmailClick}
               aria-label="Email"
               className="flex items-center gap-2 text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors"
             >
