@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Mail, Download, Phone, Check } from "lucide-react";
 import { LinkedinIcon } from "@/components/ui/Icons";
 import { siteConfig } from "@/lib/data";
-import { fadeInUp, staggerContainer, staggerItem } from "@/lib/animations";
+import { staggerContainer, staggerItem } from "@/lib/animations";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
@@ -123,21 +123,6 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <div className="w-6 h-10 rounded-full border-2 border-[var(--muted-foreground)]/30 flex justify-center">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] mt-2"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }

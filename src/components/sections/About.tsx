@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/lib/animations";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -17,12 +18,17 @@ export function About() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid gap-8 md:grid-cols-[1fr_2fr] items-start"
         >
-          {/* Profile image placeholder */}
+          {/* Profile image */}
           <div className="flex justify-center md:justify-start">
-            <div className="w-48 h-48 rounded-2xl bg-gradient-to-br from-[var(--primary)]/20 to-[var(--accent)]/20 border border-[var(--card-border)] flex items-center justify-center">
-              <span className="text-6xl font-bold text-[var(--primary)]">
-                SS
-              </span>
+            <div className="w-48 h-48 rounded-2xl border border-[var(--card-border)] overflow-hidden">
+              <Image
+                src="/profile.png"
+                alt="Shashank Sharma"
+                width={192}
+                height={192}
+                className="w-full h-full object-cover object-[50%_15%]"
+                priority
+              />
             </div>
           </div>
 

@@ -66,6 +66,7 @@ export const experiences: Experience[] = [
 ];
 
 export interface Project {
+  id: string;
   title: string;
   description: string;
   technologies: string[];
@@ -75,13 +76,17 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Resume Builder Products",
+    id: "career-documents-suite",
+    title: "Career Documents Suite",
     description:
-      "Architected full-stack solutions leveraging React JS, Redux, JavaScript, C#.NET, and Microservices Architecture to build and optimize high-traffic resume platforms including ResumeGenius, MyPerfectResume, and Zety. Engineered high-quality resume templates, cover letter builders, and Public Resume Sites enabling seamless social media sharing. Successfully implemented job-matching algorithms and Resume Quality Score system improving job seeker success rates. Managed source code and collaboration across diverse version control systems (Git, Mercurial, SVN, TFS) within fast-paced Agile environments.",
+      `Architected and delivered high-impact, full-stack solutions leveraging React JS, Redux, JavaScript, C#.NET, and Microservices Architecture to power high-traffic global resume platforms, including ResumeGenius, MyPerfectResume, and Zety. Spearheaded the end-to-end development of critical user touchpoints and infrastructure, spanning high-conversion SEM Landing Pages, intuitive Resume and Cover Letter Builders, and a seamless, secure Payments frontend.
+
+Engineered robust user ecosystems, including a comprehensive Dashboard and targeted retention features designed to maximize customer lifetime value. To ensure peak performance, scalability, and loose coupling, designed and deployed specialized BFF (Backend-for-Frontend) layers that seamlessly orchestrated communication between complex frontend applications and underlying microservices. Additionally, successfully pioneered high-quality resume templates, Public Resume Sites for social sharing, advanced job-matching algorithms, and an automated Resume Quality Score system. Championed technical excellence across fast-paced Agile environments, efficiently managing complex source code and cross-team collaboration.`,
     technologies: ["React JS", "Redux", "C#.NET", "ASP.NET MVC", "SQL Server", "Web APIs", "Microservices", "Git"],
     featured: true,
   },
   {
+    id: "siemens-opcenter-mes-ui-framework",
     title: "Siemens Opcenter MES & UI Framework",
     description:
       "Contributed to the Siemens Web Framework providing UI foundation utilized across the Siemens Opcenter ecosystem. Designed and deployed critical system features including interactive Side Panel and Business/Process Workflow applications. Built the MDUI Editor (Solution/Design Editor) enabling end-users to seamlessly design, customize, and deploy independent applications. Designed a robust BPMN application for the Opcenter UAF product. Successfully integrated Manufacturing Execution Systems (MES) with broader industrial automation applications maximizing operational efficiency.",
@@ -89,6 +94,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "cicd-pipeline-automation",
     title: "CI/CD Pipeline Automation",
     description:
       "Designed and implemented automated deployment pipelines improving code deployment efficiency and monitoring automated build and continuous software integration processes.",
@@ -96,6 +102,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "analytics-email-platform-integration",
     title: "Analytics & Email Platform Integration",
     description:
       "Transitioned project analytics to modern tools including Mixpanel, Segment, GA4, and integrated email platforms like HubSpot, Pinpoint, and Iterable for user engagement.",
@@ -103,6 +110,7 @@ export const projects: Project[] = [
     featured: false,
   },
   {
+    id: "restful-api-suite",
     title: "RESTful API Suite",
     description:
       "Designed and developed 40+ RESTful APIs for system integration at Siemens, expanding application functionality and improving inter-service communication.",
@@ -110,6 +118,7 @@ export const projects: Project[] = [
     featured: false,
   },
   {
+    id: "azure-cloud-migration",
     title: "Azure Cloud Migration",
     description:
       "Facilitated seamless cloud migration by providing expert guidance during Azure Cloud implementation planning phases, ensuring zero-downtime transitions.",
@@ -138,11 +147,22 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: "Backend",
-    skills: ["C#", ".NET Core", "ASP.NET MVC", "RESTful APIs", "Node JS", "Python", "SQL Server"],
+    skills: [
+      "C#",
+      ".NET Core",
+      "ASP.NET MVC",
+      "RESTful APIs",
+      "Node JS",
+      "Python",
+    ],
   },
   {
-    name: "AI & Data",
-    skills: ["GitHub Copilot", "OpenAI APIs", "Prompt Engineering", "Agentic Workflows", "GenAI"],
+    name: "Databases and Cloud",
+    skills: ["Azure", "AWS", "PostgreSQL", "SQL Server"],
+  },
+  {
+    name: "AI & Machine Learning",
+    skills: ["GitHub Copilot", "OpenAI APIs", "Prompt Engineering", "Agentic Workflows", "GenAI", "GitHub Actions", "RAG"],
   },
   {
     name: "Analytics & Marketing",
@@ -154,6 +174,7 @@ export const skillCategories: SkillCategory[] = [
       "HubSpot",
       "Pinpoint",
       "Iterable",
+      "New Relic"
     ],
   },
   {
@@ -164,6 +185,8 @@ export const skillCategories: SkillCategory[] = [
       "CI/CD",
       "Azure DevOps",
       "Azure",
+      "NGINX",
+      "Cloudflare",
       "Microservices Architecture",
       "Mentoring",
       "Team Leadership",

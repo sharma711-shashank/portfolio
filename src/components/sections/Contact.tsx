@@ -35,9 +35,7 @@ export function Contact() {
           </p>
 
           <a
-            href={`https://mail.google.com/mail/?view=cm&to=${siteConfig.email}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`mailto:${siteConfig.email}?subject=Hello%20Shashank`}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] font-medium text-lg hover:opacity-90 transition-opacity group"
           >
             <Mail className="w-5 h-5" />
@@ -57,9 +55,7 @@ export function Contact() {
               <span className="text-sm">LinkedIn</span>
             </a>
             <a
-              href={`https://mail.google.com/mail/?view=cm&to=${siteConfig.email}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${siteConfig.email}?subject=Hello%20Shashank`}
               aria-label="Email"
               className="flex items-center gap-2 text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors"
             >

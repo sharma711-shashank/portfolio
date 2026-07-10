@@ -1,19 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { projects } from "@/lib/data";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 import { Badge } from "@/components/ui/Badge";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 const DESCRIPTION_LIMIT = 120;
 const TRUNCATED_INDEXES = new Set([0, 1]);
 
 export function Projects() {
-  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
-
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
@@ -28,7 +26,6 @@ export function Projects() {
         >
           {projects.map((project, index) => {
             const canTruncate = TRUNCATED_INDEXES.has(index);
-            const isExpanded = expanded[index];
 
             return (
               <motion.div
@@ -64,25 +61,15 @@ export function Projects() {
                 </h3>
 
                 <p className="text-sm text-[var(--muted-foreground)] mb-4 leading-relaxed">
-                  {canTruncate && !isExpanded ? (
+                  {canTruncate ? (
                     <>
                       {project.description.slice(0, DESCRIPTION_LIMIT).trimEnd()}…
-                      <button
-                        onClick={() => setExpanded((prev) => ({ ...prev, [index]: true }))}
+                      <Link
+                        href={`/projects/${project.id}`}
                         className="text-xs text-[var(--primary)] hover:underline ml-1 focus:outline-none"
                       >
                         Show more
-                      </button>
-                    </>
-                  ) : canTruncate && isExpanded ? (
-                    <>
-                      {project.description}{" "}
-                      <button
-                        onClick={() => setExpanded((prev) => ({ ...prev, [index]: false }))}
-                        className="text-xs text-[var(--primary)] hover:underline ml-1 focus:outline-none"
-                      >
-                        Show less
-                      </button>
+                      </Link>
                     </>
                   ) : (
                     project.description
